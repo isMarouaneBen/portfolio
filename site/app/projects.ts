@@ -1,0 +1,80 @@
+export const projects = [
+  {
+    name: 'AetherSignal — Ethereum whale tracker', repository: 'ethereum-whale-tracker-predictor', types: ['AI & machine learning', 'Data visualization'], url: 'https://github.com/mohamedamineelabidi/ethereum-whale-tracker-predictor', category: 'Data science · Deep learning · Team project',
+    summary: 'A research platform that tracks Ethereum whale activity and estimates the probability of a large price move over the next six hours.',
+    details: [
+      'Contributed as a Data Scientist in a three-person team.',
+      'Combines on-chain whale activity and market data into 48-hour sequences with 26 features to predict top-quartile absolute returns, rather than price direction.',
+      'Benchmarks RNN, GRU, LSTM, and XGBoost using a chronological 70/15/15 split, training-only preprocessing, and validation-tuned classification thresholds.',
+      'The repository reports a held-out GRU ROC AUC of 0.913 and PR AUC of 0.867; these are research evaluation results, without a trading backtest.',
+      'A Streamlit dashboard provides whale tracking, model predictions, and performance comparisons, including exchange flows, funding rates, and open interest.',
+    ],
+    stack: ['Python', 'pandas', 'NumPy', 'TensorFlow / Keras', 'XGBoost', 'scikit-learn', 'Streamlit', 'Plotly', 'BigQuery', 'pytest'],
+  },
+  {
+    name: 'FindJob', repository: 'FindJob', types: ['Data engineering', 'AI & machine learning', 'Software development', 'Data visualization'], category: 'Data engineering · Applied AI',
+    summary: 'A job intelligence platform that brings together job offers and matches them to a candidate’s CV.',
+    details: ['Listings from Adzuna, ReKrute, and Emploi-Public move from raw MongoDB storage through Python cleaning and enrichment into a PostgreSQL star schema.', 'CVs are parsed asynchronously through Kafka.', 'Multilingual embeddings find relevant offers, then a seven-factor score accounts for skills, seniority, contract, location, remote preferences, and language.', 'A React interface supports CV uploads and recommendations; Power BI supports job-market analysis.'],
+    stack: ['Python', 'FastAPI', 'React', 'PostgreSQL / pgvector', 'MongoDB', 'Kafka', 'Airflow', 'Redis', 'MinIO', 'sentence-transformers', 'Power BI', 'Docker'],
+  },
+  {
+    name: 'TaaSim', repository: 'TaaSim', types: ['Data engineering', 'AI & machine learning'], url: 'https://github.com/Khalilozich123/TaaSim', category: 'Real-time data engineering · Team project',
+    summary: 'A streaming urban mobility platform for analyzing supply, demand, and trip matching in Casablanca.',
+    details: ['The project remaps 1.7 million Porto trips onto Casablanca through OSRM and replays them as Kafka events.', 'Three Flink jobs normalize GPS data, aggregate supply and demand, and match trips, with event-time watermarks and checkpoints in MinIO.', 'Cassandra serves the resulting state.', 'A Spark MLlib gradient-boosted model forecasts demand by zone and 30-minute window, with 22% lower RMSE than the baseline reported in my CV.', 'FastAPI and Grafana expose predictions and live maps.'],
+    stack: ['Python', 'Kafka', 'Flink', 'Spark MLlib', 'Cassandra', 'MinIO', 'OSRM', 'FastAPI', 'Grafana', 'Docker'],
+  },
+  {
+    name: 'Procurement data pipeline', repository: 'procurement-system-BigData', types: ['Data engineering'], category: 'Big data · Automation',
+    summary: 'An end-to-end procurement pipeline that turns orders and stock levels into supplier purchase orders.',
+    details: ['An eight-task daily Airflow DAG loads order and inventory files into HDFS, stores stock snapshots in Cassandra, and creates Hive tables.', 'Trino joins these sources with product, supplier, and warehouse data in PostgreSQL.', 'The pipeline calculates net demand from available stock and safety thresholds, then generates supplier orders subject to pricing and purchasing rules, followed by an execution summary.'],
+    stack: ['Python', 'SQL', 'Airflow', 'Hadoop HDFS', 'Hive', 'Cassandra', 'Trino', 'PostgreSQL', 'Docker'],
+  },
+  {
+    name: 'Generic RAG', repository: 'generic_rag', types: ['AI & machine learning'], category: 'Applied AI · Document retrieval',
+    summary: 'A local document question-answering application with answers grounded in retrieved source passages.',
+    details: ['PDF, DOCX, text, Markdown, and HTML files are extracted, split into overlapping chunks, embedded, and stored in named PostgreSQL collections.', 'Retrieval combines pgvector similarity and full-text search with reciprocal rank fusion and optional cross-encoder reranking.', 'A local Hugging Face language model generates a streamed answer with source citations.', 'The FastAPI backend uses direct SQL rather than a RAG framework; Streamlit provides the upload and chat interface.'],
+    stack: ['Python', 'FastAPI', 'Streamlit', 'PostgreSQL / pgvector', 'Hugging Face Transformers', 'sentence-transformers', 'Docker'],
+  },
+  {
+    name: 'Avito ELT pipeline', repository: 'scraping_ELT_Project', types: ['Data engineering'], category: 'Data engineering · Web scraping',
+    summary: 'A medallion data pipeline that prepares Moroccan car listings for business intelligence.',
+    details: ['A Flask API runs a Playwright scraper and loads Avito listings into a raw PostgreSQL bronze table, deduplicated by URL.', 'A scheduled Airflow DAG cleans and types the data in the silver layer, then builds gold dimensions and a fact table for brands, models, fuel types, gearboxes, and locations.', 'The resulting schema can be queried directly from Power BI.', 'Docker Compose runs the API, databases, Airflow Celery workers, and Redis together.'],
+    stack: ['Python', 'Flask', 'Playwright', 'PostgreSQL', 'SQL', 'Airflow', 'Celery', 'Redis', 'Docker Compose'],
+  },
+  {
+    name: 'Customer churn prediction', repository: 'mlops_churn_prediction', types: ['AI & machine learning'], category: 'Machine learning · Model serving',
+    summary: 'A reproducible training and inference pipeline for predicting e-commerce customer churn.',
+    details: ['The pipeline ingests an Excel dataset, cleans missing values and input features, and trains logistic regression, decision tree, and random forest classifiers using configurable parameters.', 'Evaluation reports accuracy, precision, recall, F1, and ROC AUC.', 'Trained models and the feature vectorizer are saved for inference.', 'A FastAPI endpoint returns a churn prediction and probability, with Docker support and preprocessing tests.'],
+    stack: ['Python', 'pandas', 'NumPy', 'scikit-learn', 'FastAPI', 'Uvicorn', 'PyYAML', 'pytest', 'Docker'],
+  },
+  {
+    name: 'Text annotation platform', repository: 'annotation_system', types: ['Software development'], category: 'Full-stack development · NLP tooling',
+    summary: 'A collaborative workspace for preparing labeled text datasets for NLP tasks.',
+    details: ['Administrators import CSV or JSON datasets containing individual texts or text pairs, define labels, and assign annotation tasks.', 'Annotators sign in to label their assigned examples.', 'The application tracks progress and label distribution, exports completed annotations, and provides controls for NLP training runs.', 'Spring Security separates administrator and annotator access; Spring Data JPA persists the data in MySQL, with Thymeleaf-rendered views.'],
+    stack: ['Java 17', 'Spring Boot', 'Spring Security', 'Spring Data JPA', 'Thymeleaf', 'MySQL', 'Maven'],
+  },
+  {
+    name: 'NMLab medical practice manager', repository: 'NM_Lab', types: ['Software development'], category: 'Web & desktop development',
+    summary: 'A medical practice management project covering patients, doctors, appointments, and prescriptions.',
+    details: ['The Django application separates authentication, doctor workflows, patient workflows, and statistics into dedicated modules.', 'Its documented features include role-based access, medical histories, practitioner availability, prescription tracking, and activity reporting.', 'Django REST Framework exposes API functionality, while HTML, CSS, and JavaScript provide the web interface.', 'The repository also includes a Tkinter desktop application and Docker configuration.'],
+    stack: ['Python', 'Django', 'Django REST Framework', 'SQLite', 'HTML / CSS', 'JavaScript', 'Tkinter', 'Docker'],
+  },
+  {
+    name: 'Euro 2024 shot map', repository: 'Football-Analytics-Euro-2022-Shot-Map', types: ['Data visualization'], category: 'Sports analytics · Data visualization',
+    summary: 'An interactive football dashboard for exploring where teams and players take their shots.',
+    details: ['The Streamlit app loads the included Euro 2024 CSV, selects shot events, and parses their pitch coordinates.', 'Team and player selectors filter the dataset.', 'Shots are plotted on an mplsoccer half-pitch, sized by StatsBomb expected goals and colored to distinguish goals from other outcomes.', 'The repository name refers to 2022, but the application and dataset use Euro 2024.'],
+    stack: ['Python', 'Streamlit', 'pandas', 'mplsoccer', 'Matplotlib'],
+  },
+  {
+    name: 'DigitalCabinet', repository: 'DigitalCabinet_C', types: ['Software development'], category: 'C programming · Console application',
+    summary: 'A Windows console application for managing medical appointments and billing records.',
+    details: ['Doctors can register and access appointment workflows.', 'The program creates, modifies, and cancels patient appointments, checks date and time validity, rejects duplicate slots, and records invoices.', 'Data is persisted in local text files.', 'The interface uses Windows console positioning and colors, with separate C structures for doctors, patients, dates, and billing information.'],
+    stack: ['C', 'Standard C library', 'Windows console API', 'Text-file storage'],
+  },
+  {
+    name: 'Jungle board game', repository: 'JeuJava', types: ['Software development'], category: 'Java development · Game logic',
+    summary: 'A console implementation of Jungle, the two-player Chinese strategy game also called Dou Shou Qi.',
+    details: ['The game models animal ranks, move validation, and special terrain such as rivers, traps, and sanctuaries.', 'Player accounts, match history, ELO ratings, and a leaderboard are stored in an embedded H2 database.', 'The code separates domain objects, game rules, database access, and console presentation into layers, using JDBC for persistence and Maven for the build.'],
+    stack: ['Java', 'H2', 'JDBC', 'Maven'],
+  },
+];
