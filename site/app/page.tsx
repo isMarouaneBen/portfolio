@@ -6,7 +6,7 @@ const github = 'https://github.com/isMarouaneBen';
 const linkedin = 'https://www.linkedin.com/in/marouane-ben-haddou-431615254/';
 const email = 'mailto:marouanebenhaddou9@gmail.com';
 const experience = [
-  {company:'GOJI',role:'Software Engineering',location:'Paris, France · Remote',date:'JUL — SEP 2026',description:[
+  {company:'Goji',role:'Software Engineering',location:'Paris, France · Remote',date:'JUL — SEP 2026',description:[
     'Contributed to the architecture and development of two AI agents: a sales agent for personalized product exploration and a hospitality concierge agent.',
     'Built the Goji Hospitality inbox service to enable communication between hotel guests and staff.',
     'Developed concierge features to interpret guest requests, retrieve hotel and reservation context, and execute predefined workflows through connected systems.',
