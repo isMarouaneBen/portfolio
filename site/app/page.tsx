@@ -31,8 +31,8 @@ export default function Home() {
         <div>
           <p className="availability">Open to opportunities & internships</p>
           <h1>Marouane<br/>Ben Haddou<span>.</span></h1>
-          <p className="role">Data Engineering & Applied AI</p>
-          <p className="hero-description">Engineering student at ENSAH. I build data pipelines, machine learning applications, and the interfaces that make them useful.</p>
+          <p className="role">Data &amp; AI Engineer</p>
+          <p className="hero-description">AI &amp; Data Engineer passionate about building intelligent systems that drive real-world impact. My expertise spans machine learning, NLP, big data, and full-stack development, where I develop AI-driven solutions for scalable insight collection, automation, and decision-making.</p>
           <div className="actions"><a className="button primary" href="/projects">View projects <ArrowUpRight size={18}/></a><a className="button secondary" href="/Marouane-Ben-Haddou-CV.pdf" download>Download CV <Download size={17}/></a></div>
           <div className="hero-links"><span><MapPin size={15}/> Morocco · Open to remote</span><a href={github} target="_blank" rel="noreferrer"><GitHubIcon /> GitHub <ArrowUpRight size={14}/></a><a href={linkedin} target="_blank" rel="noreferrer"><LinkedInIcon /> LinkedIn <ArrowUpRight size={14}/></a></div>
         </div>
