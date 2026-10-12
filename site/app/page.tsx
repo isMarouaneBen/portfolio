@@ -6,6 +6,11 @@ const github = 'https://github.com/isMarouaneBen';
 const linkedin = 'https://www.linkedin.com/in/marouane-ben-haddou-431615254/';
 const email = 'mailto:marouanebenhaddou9@gmail.com';
 const experience = [
+  {company:'Goji',role:'AI Software Engineer',current:true,location:'Paris, France · Remote',date:'SEP 2026 — PRESENT',description:[
+    'Continued working with Goji after successfully completing two months with the team.',
+    'Continue developing the Goji Hospitality agent to support guest requests and hotel workflows.',
+    'Test the Goji Sales agent in parallel for sales clients, evaluating its responses and behavior in client use cases.',
+  ]},
   {company:'Goji',role:'Software Engineering',location:'Paris, France · Remote',date:'JUL — SEP 2026',description:[
     'Contributed to the architecture and development of two AI agents: a sales agent for personalized product exploration and a hospitality concierge agent.',
     'Built the Goji Hospitality inbox service to enable communication between hotel guests and staff.',
@@ -40,8 +45,8 @@ export default function Home() {
       </section>
       <section className="experience-section" id="experience"><div className="wrap experience-layout">
         <div><h2>Professional experience</h2><a className="text-link resume-link" href="/Marouane-Ben-Haddou-CV.pdf" download>Full résumé <Download size={16}/></a></div>
-        <div>{experience.map(item => <article className="experience-item" key={item.company}>
-          <div className="experience-meta"><span>{item.date}</span><span>{item.location}</span></div><h3>{item.role} · Internship</h3><p className="company">{item.company}</p><ul className="description-list">{item.description.map(detail => <li key={detail}>{detail}</li>)}</ul>
+        <div>{experience.map(item => <article className="experience-item" key={`${item.company}-${item.date}`}>
+          <div className="experience-meta"><span>{item.date}</span><span>{item.location}</span></div><h3>{item.role}{!item.current && ' · Internship'}</h3><p className="company">{item.company}</p><ul className="description-list">{item.description.map(detail => <li key={detail}>{detail}</li>)}</ul>
         </article>)}</div>
       </div></section>
       <section className="section wrap experience-layout education-section" id="education" aria-labelledby="education-title">
